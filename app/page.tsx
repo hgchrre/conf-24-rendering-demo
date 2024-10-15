@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
+import AIGenerationsCarousel from "@/components/AIGenerationsCarousel"
 
-export default function CircleLanding() {
+export default function CubeLanding() {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       <div className="container mx-auto px-6 lg:px-8">
@@ -10,10 +11,11 @@ export default function CircleLanding() {
           <div className="flex justify-between items-center">
             <Link href="/" className="text-2xl font-bold flex items-center space-x-2">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="16" cy="16" r="12" stroke="white" strokeWidth="2"/>
-                <circle cx="16" cy="16" r="6" fill="white"/>
+                <path d="M16 4L28 10V22L16 28L4 22V10L16 4Z" stroke="white" strokeWidth="2"/>
+                <path d="M16 4L28 10L16 16L4 10L16 4Z" fill="white" fillOpacity="0.3"/>
+                <path d="M16 16V28M16 16L28 10M16 16L4 10" stroke="white" strokeWidth="2"/>
               </svg>
-              <span>circle</span>
+              <span>cube</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link href="#features" className="text-sm hover:text-gray-300">Features</Link>
@@ -21,7 +23,11 @@ export default function CircleLanding() {
               <Link href="#about" className="text-sm hover:text-gray-300">About</Link>
               <Link href="#contact" className="text-sm hover:text-gray-300">Contact</Link>
             </nav>
-            <Button variant="outline" size="sm" className="hidden md:inline-flex rounded-full px-6 py-2 bg-black text-white hover:bg-gray-900">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="hidden md:inline-flex rounded-full px-6 py-2 bg-black text-white hover:bg-white hover:text-black transition-colors duration-200"
+            >
               Get Started
             </Button>
             <Button variant="outline" size="sm" className="md:hidden rounded-full px-4 py-2 bg-black text-white hover:bg-gray-900">
@@ -34,24 +40,34 @@ export default function CircleLanding() {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Streamline your workflow with Circle
+                Streamline your workflow with Cube
               </h1>
               <p className="text-xl mb-10 text-gray-300">
-                Boost productivity and simplify collaboration with our intuitive SaaS platform.
+                Boost productivity and simplify collaboration with our innovative 3D SaaS platform.
               </p>
               <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-3 text-lg font-semibold">
                 Start Free Trial
               </Button>
             </div>
             <div className="md:w-1/2 flex justify-center">
-              <Image
-                src="/glass.png"
-                alt="Circle SaaS Platform"
-                width={500}
-                height={400}
-                className="rounded-lg shadow-2xl"
-              />
+              <div className="relative w-full aspect-[5/4] max-w-[500px] bounce-animation">
+                <Image
+                  src="/glass.png"
+                  alt="Cube SaaS Platform"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
+                  className="rounded-lg shadow-2xl object-cover"
+                />
+              </div>
             </div>
+          </div>
+
+          <div className="mt-20">
+            <h2 className="text-3xl font-bold mb-8 text-center">AI Generations by Our Users</h2>
+            <AIGenerationsCarousel />
           </div>
         </main>
 
