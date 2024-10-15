@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
-import AIGenerationsCarousel from "@/components/AIGenerationsCarousel"
+import Carousel from "@/components/carousel"
 
 export default function CubeLanding() {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
-      <div className="container mx-auto px-6 lg:px-8">
-        <header className="py-6">
+      <div className="mx-auto">
+        <header className="container mx-auto py-6 px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <Link href="/" className="text-2xl font-bold flex items-center space-x-2">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,9 +23,9 @@ export default function CubeLanding() {
               <Link href="#about" className="text-sm hover:text-gray-300">About</Link>
               <Link href="#contact" className="text-sm hover:text-gray-300">Contact</Link>
             </nav>
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               className="hidden md:inline-flex rounded-full px-6 py-2 bg-black text-white hover:bg-white hover:text-black transition-colors duration-200"
             >
               Get Started
@@ -36,7 +36,7 @@ export default function CubeLanding() {
           </div>
         </header>
 
-        <main className="py-20">
+        <main className="container mx-auto py-20">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
@@ -64,14 +64,14 @@ export default function CubeLanding() {
               </div>
             </div>
           </div>
-
-          <div className="mt-20">
-            <h2 className="text-3xl font-bold mb-8 text-center">AI Generations by Our Users</h2>
-            <AIGenerationsCarousel />
-          </div>
         </main>
 
-        <footer className="py-6 border-t border-gray-800">
+        <div className="">
+            <h2 className="text-3xl font-bold mb-8 text-center">AI Generations by Our Users</h2>
+            <Carousel />
+        </div>
+
+        <footer className="mt-20 container mx-auto py-6 border-t border-gray-800 px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <p className="text-sm">You're in good hands.</p>
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-6 md:gap-8">

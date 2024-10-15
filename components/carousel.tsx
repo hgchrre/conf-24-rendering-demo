@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 
 interface AIGeneration {
@@ -9,16 +9,18 @@ interface AIGeneration {
   creator: string
 }
 
-const AIGenerationsCarousel: React.FC = () => {
+const Carousel: React.FC = () => {
   const [generations, setGenerations] = useState<AIGeneration[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
-  const fetchGenerations = async () => {
+  const fetchGenerations = useCallback(async () => {
     try {
       // Simulating an API call with a delay
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
       // Mock data
       const mockData: AIGeneration[] = [
         { id: 1, imageUrl: 'https://picsum.photos/200/300?random=1', creator: 'User1' },
@@ -28,40 +30,58 @@ const AIGenerationsCarousel: React.FC = () => {
         { id: 5, imageUrl: 'https://picsum.photos/200/300?random=5', creator: 'User5' },
       ]
 
-      setGenerations(prevGenerations => [...prevGenerations, ...mockData])
+      setGenerations(prevGenerations => {
+        const newGenerations = [...prevGenerations, ...mockData]
+        // Keep only the last 15 items to prevent excessive memory usage
+        return newGenerations.slice(-15)
+      })
       setLoading(false)
     } catch (err) {
       setError('Failed to fetch AI generations')
       setLoading(false)
     }
-  }
+  }, [])
 
   useEffect(() => {
     fetchGenerations()
-  }, [])
+  }, [fetchGenerations])
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop
-        >= document.documentElement.offsetHeight - 100
-      ) {
-        fetchGenerations()
+    if (!carouselRef.current || isPaused) return
+
+    const scrollCarousel = () => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollLeft += 1
+        if (
+          carouselRef.current.scrollLeft >=
+          carouselRef.current.scrollWidth - carouselRef.current.clientWidth
+        ) {
+          carouselRef.current.scrollLeft = 0
+        }
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const intervalId = setInterval(scrollCarousel, 30)
+
+    return () => clearInterval(intervalId)
+  }, [isPaused])
+
+  const handleMouseEnter = () => setIsPaused(true)
+  const handleMouseLeave = () => setIsPaused(false)
 
   if (loading && generations.length === 0) return <div>Loading...</div>
   if (error) return <div>{error}</div>
 
   return (
-    <div className="w-full overflow-x-auto">
+    <div
+      ref={carouselRef}
+      className="w-full overflow-x-hidden"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="flex space-x-4 animate-scroll">
-        {generations.map((gen) => (
-          <div key={gen.id} className="flex-none w-64">
+        {[...generations, ...generations].map((gen, index) => (
+          <div key={`${gen.id}-${index}`} className="flex-none w-64">
             <div className="bg-gray-800 rounded-lg overflow-hidden">
               <Image
                 src={gen.imageUrl}
@@ -81,4 +101,4 @@ const AIGenerationsCarousel: React.FC = () => {
   )
 }
 
-export default AIGenerationsCarousel
+export default Carousel
