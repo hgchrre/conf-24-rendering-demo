@@ -45,7 +45,7 @@ export default function CubeLanding() {
                 Streamline your workflow with Cube
               </h1>
               <p className="text-xl mb-10 text-gray-300">
-                Boost productivity and simplify collaboration with our innovative 3D SaaS platform.
+                Boost productivity and simplify collaboration with our innovative Quantum 3D SaaS platform.
               </p>
               <Link href="/dashboard" prefetch>
                 <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-3 text-lg font-semibold">
