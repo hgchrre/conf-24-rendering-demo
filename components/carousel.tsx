@@ -37,6 +37,7 @@ const Carousel: React.FC = () => {
       })
       setLoading(false)
     } catch (err) {
+      console.error(err)
       setError('Failed to fetch AI generations')
       setLoading(false)
     }
