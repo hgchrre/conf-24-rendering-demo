@@ -178,7 +178,7 @@ export default function Charts() {
             <CardTitle className="text-4xl tabular-nums">
               12,584{" "}
               <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
-                steps
+                photons
               </span>
             </CardTitle>
           </CardHeader>
@@ -186,7 +186,7 @@ export default function Charts() {
             <ChartContainer
               config={{
                 steps: {
-                  label: "Steps",
+                  label: "Photons",
                   color: "hsl(var(--chart-1))",
                 },
               }}
@@ -270,7 +270,7 @@ export default function Charts() {
                 >
                   <Label
                     position="insideBottomLeft"
-                    value="Average Steps"
+                    value="Average Photons"
                     offset={10}
                     fill="hsl(var(--foreground))"
                   />
@@ -288,13 +288,13 @@ export default function Charts() {
           </CardContent>
           <CardFooter className="flex-col items-start gap-1">
             <CardDescription>
-              Over the past 7 days, you have walked{" "}
-              <span className="font-medium text-foreground">53,305</span> steps.
+              Over the past 7 days, you have intercepted{" "}
+              <span className="font-medium text-foreground">53,305</span> photons.
             </CardDescription>
             <CardDescription>
               You need{" "}
               <span className="font-medium text-foreground">12,584</span> more
-              steps to reach your goal.
+              photons to reach your goal.
             </CardDescription>
           </CardFooter>
         </Card>
@@ -303,11 +303,11 @@ export default function Charts() {
         >
           <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
             <div>
-              <CardDescription>Resting HR</CardDescription>
+              <CardDescription>Resting Frequency</CardDescription>
               <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
                 62
                 <span className="text-sm font-normal tracking-normal text-muted-foreground">
-                  bpm
+                  Hz
                 </span>
               </CardTitle>
             </div>
@@ -427,7 +427,7 @@ export default function Charts() {
           <CardHeader>
             <CardTitle>Progress</CardTitle>
             <CardDescription>
-              You're average more steps a day this year than last year.
+              You're average more photons a day this year than last year.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
@@ -539,9 +539,9 @@ export default function Charts() {
           className="max-w-xs" x-chunk="charts-01-chunk-3"
         >
           <CardHeader className="p-4 pb-0">
-            <CardTitle>Walking Distance</CardTitle>
+            <CardTitle>Parsec Distance</CardTitle>
             <CardDescription>
-              Over the last 7 days, your distance walked and run was 12.5 miles
+              Over the last 7 eons, your distance flown was 12.5 parsecs
               per day.
             </CardDescription>
           </CardHeader>
@@ -905,7 +905,7 @@ export default function Charts() {
           className="max-w-xs" x-chunk="charts-01-chunk-7"
         >
           <CardHeader className="space-y-0 pb-0">
-            <CardDescription>Time in Bed</CardDescription>
+            <CardDescription>Time in Vortex</CardDescription>
             <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
               8
               <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
