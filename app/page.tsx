@@ -5,7 +5,7 @@ import Carousel from "@/components/carousel"
 
 export default function CubeLanding() {
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
+    <div className="min-h-screen bg-background text-white font-sans">
       <div className="mx-auto">
         <header className="container mx-auto py-6 px-6 lg:px-8">
           <div className="flex justify-between items-center">

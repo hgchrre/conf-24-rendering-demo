@@ -83,7 +83,7 @@ const Carousel: React.FC = () => {
       <div className="flex space-x-4 animate-scroll">
         {[...generations, ...generations].map((gen, index) => (
           <div key={`${gen.id}-${index}`} className="flex-none w-64">
-            <div className="bg-gray-800 rounded-lg overflow-hidden">
+            <div className="bg-muted/40 rounded-lg overflow-hidden">
               <Image
                 src={gen.imageUrl}
                 alt={`AI Generation by ${gen.creator}`}
