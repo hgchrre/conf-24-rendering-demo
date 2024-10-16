@@ -58,7 +58,7 @@ export default function Charts() {
       </Link>
       <Link
         href="#"
-        className="text-muted-foreground transition-colors hover:text-foreground"
+        className="text-foreground transition-colors hover:text-foreground"
       >
         Dashboard
       </Link>
@@ -82,7 +82,7 @@ export default function Charts() {
       </Link>
       <Link
         href="#"
-        className="text-foreground transition-colors hover:text-foreground"
+        className="text-muted-foreground transition-colors hover:text-foreground"
       >
         Settings
       </Link>

@@ -94,3 +94,16 @@ body {
     --chart-5: 340 75% 55%;
   }
 }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.bounce-animation {
+  animation: bounce 3s ease-in-out infinite;
+}

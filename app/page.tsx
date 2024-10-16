@@ -23,13 +23,15 @@ export default function CubeLanding() {
               <Link href="#about" className="text-sm hover:text-gray-300">About</Link>
               <Link href="#contact" className="text-sm hover:text-gray-300">Contact</Link>
             </nav>
-            <Button
-              variant="outline"
-              size="sm"
-              className="hidden md:inline-flex rounded-full px-6 py-2 bg-black text-white hover:bg-white hover:text-black transition-colors duration-200"
-            >
-              Get Started
-            </Button>
+            <Link href="/dashboard" prefetch>
+              <Button
+                variant="outline"
+                size="sm"
+                className="hidden md:inline-flex rounded-full px-6 py-2 bg-black text-white hover:bg-white hover:text-black transition-colors duration-200"
+              >
+                Get Started
+              </Button>
+            </Link>
             <Button variant="outline" size="sm" className="md:hidden rounded-full px-4 py-2 bg-black text-white hover:bg-gray-900">
               Menu
             </Button>
@@ -45,9 +47,11 @@ export default function CubeLanding() {
               <p className="text-xl mb-10 text-gray-300">
                 Boost productivity and simplify collaboration with our innovative 3D SaaS platform.
               </p>
-              <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-3 text-lg font-semibold">
-                Start Free Trial
-              </Button>
+              <Link href="/dashboard" prefetch>
+                <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-3 text-lg font-semibold">
+                  Start Free Trial
+                </Button>
+              </Link>
             </div>
             <div className="md:w-1/2 flex justify-center">
               <div className="relative w-full aspect-[5/4] max-w-[500px] bounce-animation">
