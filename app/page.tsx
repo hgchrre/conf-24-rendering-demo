@@ -67,13 +67,13 @@ export default function CubeLanding() {
         </main>
 
         <div className="">
-            <h2 className="text-3xl font-bold mb-8 text-center">AI Generations by Our Users</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">What Others Have Made</h2>
             <Carousel />
         </div>
 
         <footer className="mt-20 container mx-auto py-6 border-t border-gray-800 px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <p className="text-sm">You're in good hands.</p>
+            <p className="text-sm">You&apos;re in good hands.</p>
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-6 md:gap-8">
               <span className="text-xs font-semibold">Trusted by 10,000+ companies</span>
               <span className="text-xs font-semibold">99.9% Uptime SLA</span>
