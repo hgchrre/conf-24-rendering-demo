@@ -1,9 +1,11 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import Image from "next/image"
-import Carousel from "@/components/carousel"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-export default function CubeLanding() {
+export default function MarketingLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="min-h-screen bg-background text-white font-sans">
       <div className="mx-auto">
@@ -18,6 +20,8 @@ export default function CubeLanding() {
               <span>cube</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
+              <Link href="/" className="text-sm hover:text-gray-300">Home</Link>
+              <Link href="/gallery" className="text-sm hover:text-gray-300">Gallery</Link>
               <Link href="#features" className="text-sm hover:text-gray-300">Features</Link>
               <Link href="#pricing" className="text-sm hover:text-gray-300">Pricing</Link>
               <Link href="#about" className="text-sm hover:text-gray-300">About</Link>
@@ -39,45 +43,12 @@ export default function CubeLanding() {
         </header>
 
         <main className="container mx-auto py-20">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Streamline your workflow with Cube
-              </h1>
-              <p className="text-xl mb-10 text-gray-300">
-                Boost productivity and simplify collaboration with our innovative Quantum 3D SaaS platform.
-              </p>
-              <Link href="/dashboard" prefetch>
-                <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-3 text-lg font-semibold">
-                  Start Free Trial
-                </Button>
-              </Link>
-            </div>
-            <div className="md:w-1/2 flex justify-center">
-              <div className="relative w-full aspect-[5/4] max-w-[500px] bounce-animation">
-                <Image
-                  src="/glass.png"
-                  alt="Cube SaaS Platform"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  priority
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
-                  className="rounded-lg shadow-2xl object-cover"
-                />
-              </div>
-            </div>
-          </div>
+          {children}
         </main>
-
-        <div className="">
-            <h2 className="text-3xl font-bold mb-8 text-center">What Others Have Made</h2>
-            <Carousel />
-        </div>
 
         <footer className="mt-20 container mx-auto py-6 border-t border-gray-800 px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <p className="text-sm">You&apos;re in good hands.</p>
+            <p className="text-sm">You're in good hands.</p>
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-6 md:gap-8">
               <span className="text-xs font-semibold">Trusted by 10,000+ companies</span>
               <span className="text-xs font-semibold">99.9% Uptime SLA</span>
@@ -91,5 +62,5 @@ export default function CubeLanding() {
         </footer>
       </div>
     </div>
-  )
+  );
 }
