@@ -316,7 +316,7 @@ export default function Charts() {
               <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
                 35
                 <span className="text-sm font-normal tracking-normal text-muted-foreground">
-                  ms
+                  T&sup2;
                 </span>
               </CardTitle>
             </div>
@@ -541,7 +541,7 @@ export default function Charts() {
           <CardHeader className="p-4 pb-0">
             <CardTitle>Parsec Distance</CardTitle>
             <CardDescription>
-              Over the last 7 eons, your distance flown was 12.5 parsecs
+              Over the last 45 eons, your distance flown was 12.5 parsecs
               per day.
             </CardDescription>
           </CardHeader>
@@ -549,7 +549,7 @@ export default function Charts() {
             <div className="flex items-baseline gap-1 text-3xl font-bold tabular-nums leading-none">
               12.5
               <span className="text-sm font-normal text-muted-foreground">
-                parsecs/day
+                pc/day
               </span>
             </div>
             <ChartContainer
@@ -625,16 +625,16 @@ export default function Charts() {
           <CardContent className="flex gap-4 p-4 pb-2">
             <ChartContainer
               config={{
-                move: {
-                  label: "Move",
+                speed: {
+                  label: "Speed",
                   color: "hsl(var(--chart-1))",
                 },
-                stand: {
-                  label: "Stand",
+                spin: {
+                  label: "Spin",
                   color: "hsl(var(--chart-2))",
                 },
-                exercise: {
-                  label: "Exercise",
+                entropy: {
+                  label: "Entropy",
                   color: "hsl(var(--chart-3))",
                 },
               }}
@@ -649,22 +649,22 @@ export default function Charts() {
                 }}
                 data={[
                   {
-                    activity: "stand",
+                    activity: "spin",
                     value: (8 / 12) * 100,
-                    label: "8/12 hr",
-                    fill: "var(--color-stand)",
+                    label: "8/12 ħ",
+                    fill: "var(--color-spin)",
                   },
                   {
-                    activity: "exercise",
+                    activity: "entropy",
                     value: (46 / 60) * 100,
-                    label: "46/60 min",
-                    fill: "var(--color-exercise)",
+                    label: "46/60 S°",
+                    fill: "var(--color-entropy)",
                   },
                   {
-                    activity: "move",
+                    activity: "speed",
                     value: (245 / 360) * 100,
-                    label: "245/360 kcal",
-                    fill: "var(--color-move)",
+                    label: "245/360 Δv",
+                    fill: "var(--color-speed)",
                   },
                 ]}
                 layout="vertical"
@@ -695,31 +695,31 @@ export default function Charts() {
           <CardFooter className="flex flex-row border-t p-4">
             <div className="flex w-full items-center gap-2">
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-xs text-muted-foreground">Move</div>
+                <div className="text-xs text-muted-foreground">Speed</div>
                 <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
                   562
                   <span className="text-sm font-normal text-muted-foreground">
-                    kcal
+                    Δv
                   </span>
                 </div>
               </div>
               <Separator orientation="vertical" className="mx-2 h-10 w-px" />
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-xs text-muted-foreground">Exercise</div>
+                <div className="text-xs text-muted-foreground">Entropy</div>
                 <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
                   73
                   <span className="text-sm font-normal text-muted-foreground">
-                    min
+                    S°
                   </span>
                 </div>
               </div>
               <Separator orientation="vertical" className="mx-2 h-10 w-px" />
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-xs text-muted-foreground">Stand</div>
+                <div className="text-xs text-muted-foreground">Spin</div>
                 <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
                   14
                   <span className="text-sm font-normal text-muted-foreground">
-                    hr
+                    ħ
                   </span>
                 </div>
               </div>
@@ -734,45 +734,45 @@ export default function Charts() {
           <CardContent className="flex gap-4 p-4">
             <div className="grid items-center gap-2">
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-sm text-muted-foreground">Move</div>
+                <div className="text-sm text-muted-foreground">Speed</div>
                 <div className="flex items-baseline gap-1 text-xl font-bold tabular-nums leading-none">
                   562/600
                   <span className="text-sm font-normal text-muted-foreground">
-                    kcal
+                    Δv
                   </span>
                 </div>
               </div>
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-sm text-muted-foreground">Exercise</div>
+                <div className="text-sm text-muted-foreground">Entropy</div>
                 <div className="flex items-baseline gap-1 text-xl font-bold tabular-nums leading-none">
                   73/120
                   <span className="text-sm font-normal text-muted-foreground">
-                    min
+                    S°
                   </span>
                 </div>
               </div>
               <div className="grid flex-1 auto-rows-min gap-0.5">
-                <div className="text-sm text-muted-foreground">Stand</div>
+                <div className="text-sm text-muted-foreground">Spin</div>
                 <div className="flex items-baseline gap-1 text-xl font-bold tabular-nums leading-none">
                   8/12
                   <span className="text-sm font-normal text-muted-foreground">
-                    hr
+                    ħ
                   </span>
                 </div>
               </div>
             </div>
             <ChartContainer
               config={{
-                move: {
-                  label: "Move",
+                speed: {
+                  label: "Speed",
                   color: "hsl(var(--chart-1))",
                 },
-                exercise: {
-                  label: "Exercise",
+                entropy: {
+                  label: "Entropy",
                   color: "hsl(var(--chart-2))",
                 },
-                stand: {
-                  label: "Stand",
+                spin: {
+                  label: "Spin",
                   color: "hsl(var(--chart-3))",
                 },
               }}
@@ -787,19 +787,19 @@ export default function Charts() {
                 }}
                 data={[
                   {
-                    activity: "stand",
+                    activity: "spin",
                     value: (8 / 12) * 100,
-                    fill: "var(--color-stand)",
+                    fill: "var(--color-spin)",
                   },
                   {
-                    activity: "exercise",
+                    activity: "entropy",
                     value: (46 / 60) * 100,
-                    fill: "var(--color-exercise)",
+                    fill: "var(--color-entropy)",
                   },
                   {
-                    activity: "move",
+                    activity: "speed",
                     value: (245 / 360) * 100,
-                    fill: "var(--color-move)",
+                    fill: "var(--color-speed)",
                   },
                 ]}
                 innerRadius="20%"
@@ -824,7 +824,7 @@ export default function Charts() {
           <CardHeader className="p-4 pb-0">
             <CardTitle>Neutrino Absorption</CardTitle>
             <CardDescription>
-              You're going thru an average of 754 neutrinos per day. Good job!
+              You're going through an average of 754 neutrinos per day. Good job!
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-row items-baseline gap-4 p-4 pt-2">
