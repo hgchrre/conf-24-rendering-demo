@@ -176,7 +176,7 @@ export default function Charts() {
           <CardHeader className="space-y-0 pb-2">
             <CardDescription>Today</CardDescription>
             <CardTitle className="text-4xl tabular-nums">
-              12,584{" "}
+              14.9B{" "}
               <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
                 photons
               </span>
@@ -185,7 +185,7 @@ export default function Charts() {
           <CardContent>
             <ChartContainer
               config={{
-                steps: {
+                photons: {
                   label: "Photons",
                   color: "hsl(var(--chart-1))",
                 },
@@ -200,37 +200,37 @@ export default function Charts() {
                 data={[
                   {
                     date: "2024-01-01",
-                    steps: 2000,
+                    photons: 2000,
                   },
                   {
                     date: "2024-01-02",
-                    steps: 2100,
+                    photons: 2100,
                   },
                   {
                     date: "2024-01-03",
-                    steps: 2200,
+                    photons: 2200,
                   },
                   {
                     date: "2024-01-04",
-                    steps: 1300,
+                    photons: 1300,
                   },
                   {
                     date: "2024-01-05",
-                    steps: 1400,
+                    photons: 1400,
                   },
                   {
                     date: "2024-01-06",
-                    steps: 2500,
+                    photons: 2500,
                   },
                   {
                     date: "2024-01-07",
-                    steps: 1600,
+                    photons: 1600,
                   },
                 ]}
               >
                 <Bar
-                  dataKey="steps"
-                  fill="var(--color-steps)"
+                  dataKey="photons"
+                  fill="var(--color-photons)"
                   radius={5}
                   fillOpacity={0.6}
                   activeBar={<Rectangle fillOpacity={0.8} />}
@@ -276,7 +276,7 @@ export default function Charts() {
                   />
                   <Label
                     position="insideTopLeft"
-                    value="12,343"
+                    value="12.3B"
                     className="text-lg"
                     fill="hsl(var(--foreground))"
                     offset={10}
@@ -289,11 +289,11 @@ export default function Charts() {
           <CardFooter className="flex-col items-start gap-1">
             <CardDescription>
               Over the past 7 days, you have intercepted{" "}
-              <span className="font-medium text-foreground">53,305</span> photons.
+              <span className="font-medium text-foreground">53.89M</span> photons.
             </CardDescription>
             <CardDescription>
               You need{" "}
-              <span className="font-medium text-foreground">12,584</span> more
+              <span className="font-medium text-foreground">8.1M</span> more
               photons to reach your goal.
             </CardDescription>
           </CardFooter>
@@ -303,11 +303,11 @@ export default function Charts() {
         >
           <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
             <div>
-              <CardDescription>Resting Frequency</CardDescription>
+              <CardDescription>Flux Capacity</CardDescription>
               <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
                 62
                 <span className="text-sm font-normal tracking-normal text-muted-foreground">
-                  Hz
+                  T
                 </span>
               </CardTitle>
             </div>
@@ -324,8 +324,8 @@ export default function Charts() {
           <CardContent className="flex flex-1 items-center">
             <ChartContainer
               config={{
-                resting: {
-                  label: "Resting",
+                capacity: {
+                  label: "Capacity",
                   color: "hsl(var(--chart-1))",
                 },
               }}
@@ -341,31 +341,31 @@ export default function Charts() {
                 data={[
                   {
                     date: "2024-01-01",
-                    resting: 62,
+                    capacity: 62,
                   },
                   {
                     date: "2024-01-02",
-                    resting: 72,
+                    capacity: 72,
                   },
                   {
                     date: "2024-01-03",
-                    resting: 35,
+                    capacity: 35,
                   },
                   {
                     date: "2024-01-04",
-                    resting: 62,
+                    capacity: 62,
                   },
                   {
                     date: "2024-01-05",
-                    resting: 52,
+                    capacity: 52,
                   },
                   {
                     date: "2024-01-06",
-                    resting: 62,
+                    capacity: 62,
                   },
                   {
                     date: "2024-01-07",
-                    resting: 70,
+                    capacity: 70,
                   },
                 ]}
               >
@@ -388,15 +388,15 @@ export default function Charts() {
                   }}
                 />
                 <Line
-                  dataKey="resting"
+                  dataKey="capacity"
                   type="natural"
-                  fill="var(--color-resting)"
-                  stroke="var(--color-resting)"
+                  fill="var(--color-capacity)"
+                  stroke="var(--color-capacity)"
                   strokeWidth={2}
                   dot={false}
                   activeDot={{
-                    fill: "var(--color-resting)",
-                    stroke: "var(--color-resting)",
+                    fill: "var(--color-capacity)",
+                    stroke: "var(--color-capacity)",
                     r: 4,
                   }}
                 />
@@ -427,21 +427,21 @@ export default function Charts() {
           <CardHeader>
             <CardTitle>Progress</CardTitle>
             <CardDescription>
-              You're average more photons a day this year than last year.
+              You're averaging more photons a day this year than last year.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <div className="grid auto-rows-min gap-2">
               <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
-                12,453
+                12.3B
                 <span className="text-sm font-normal text-muted-foreground">
-                  steps/day
+                  photons/day
                 </span>
               </div>
               <ChartContainer
                 config={{
-                  steps: {
-                    label: "Steps",
+                  photons: {
+                    label: "Photons",
                     color: "hsl(var(--chart-1))",
                   },
                 }}
@@ -459,13 +459,13 @@ export default function Charts() {
                   data={[
                     {
                       date: "2024",
-                      steps: 12435,
+                      photons: 12300,
                     },
                   ]}
                 >
                   <Bar
-                    dataKey="steps"
-                    fill="var(--color-steps)"
+                    dataKey="photons"
+                    fill="var(--color-photons)"
                     radius={4}
                     barSize={32}
                   >
@@ -478,15 +478,15 @@ export default function Charts() {
                     />
                   </Bar>
                   <YAxis dataKey="date" type="category" tickCount={1} hide />
-                  <XAxis dataKey="steps" type="number" hide />
+                  <XAxis dataKey="photons" type="number" hide />
                 </BarChart>
               </ChartContainer>
             </div>
             <div className="grid auto-rows-min gap-2">
               <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
-                10,103
+                10.1B
                 <span className="text-sm font-normal text-muted-foreground">
-                  steps/day
+                  photons/day
                 </span>
               </div>
               <ChartContainer
@@ -510,7 +510,7 @@ export default function Charts() {
                   data={[
                     {
                       date: "2023",
-                      steps: 10103,
+                      steps: 10100,
                     },
                   ]}
                 >
@@ -549,7 +549,7 @@ export default function Charts() {
             <div className="flex items-baseline gap-1 text-3xl font-bold tabular-nums leading-none">
               12.5
               <span className="text-sm font-normal text-muted-foreground">
-                miles/day
+                parsecs/day
               </span>
             </div>
             <ChartContainer
@@ -822,22 +822,22 @@ export default function Charts() {
           className="max-w-xs" x-chunk="charts-01-chunk-6"
         >
           <CardHeader className="p-4 pb-0">
-            <CardTitle>Active Energy</CardTitle>
+            <CardTitle>Neutrino Absorption</CardTitle>
             <CardDescription>
-              You're burning an average of 754 calories per day. Good job!
+              You're going thru an average of 754 neutrinos per day. Good job!
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-row items-baseline gap-4 p-4 pt-2">
             <div className="flex items-baseline gap-2 text-3xl font-bold tabular-nums leading-none">
               1,254
               <span className="text-sm font-normal text-muted-foreground">
-                kcal/day
+                n/day
               </span>
             </div>
             <ChartContainer
               config={{
                 calories: {
-                  label: "Calories",
+                  label: "n",
                   color: "hsl(var(--chart-1))",
                 },
               }}
@@ -909,11 +909,11 @@ export default function Charts() {
             <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
               8
               <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
-                hr
+                yrs
               </span>
               35
               <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
-                min
+                d
               </span>
             </CardTitle>
           </CardHeader>
@@ -993,11 +993,11 @@ export default function Charts() {
                   content={<ChartTooltipContent hideLabel />}
                   formatter={(value) => (
                     <div className="flex min-w-[120px] items-center text-xs text-muted-foreground">
-                      Time in bed
+                      Time in vortex
                       <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
                         {value}
                         <span className="font-normal text-muted-foreground">
-                          hr
+                          d
                         </span>
                       </div>
                     </div>
