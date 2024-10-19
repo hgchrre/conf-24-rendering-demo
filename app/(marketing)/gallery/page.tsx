@@ -1,7 +1,4 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import Image from "next/image"
-import Carousel from "@/components/carousel"
+import Carousel from "@/components/carousel_csr"
 
 export default function Gallery() {
   return (
