@@ -1,6 +1,6 @@
 import Live from "@/components/dashboard/live-csr"
 import Progress from "@/components/dashboard/progress-isr"
-import Today from "@/components/dashboard/today-ssr"
+import Today from "./today-ssr"
 import { Suspense } from "react"
 
 function getTimeOfDay() {

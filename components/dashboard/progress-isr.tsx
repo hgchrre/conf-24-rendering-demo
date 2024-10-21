@@ -21,7 +21,7 @@ import {
 export default function Progress() {
   return (
     <Card
-    className="max-w-xs" x-chunk="charts-01-chunk-2"
+    className="max-w-xs"
   >
     <CardHeader>
       <CardTitle>Progress</CardTitle>

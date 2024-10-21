@@ -23,7 +23,7 @@ import {
 export default function Live() {
   return (
     <Card
-    className="max-w-xs" x-chunk="charts-01-chunk-7"
+    className="max-w-xs"
   >
     <CardHeader className="space-y-0 pb-0">
       <CardDescription>Live Generations</CardDescription>
