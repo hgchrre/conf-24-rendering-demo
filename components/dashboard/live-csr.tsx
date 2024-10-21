@@ -26,15 +26,11 @@ export default function Live() {
     className="max-w-xs" x-chunk="charts-01-chunk-7"
   >
     <CardHeader className="space-y-0 pb-0">
-      <CardDescription>Time in Vortex</CardDescription>
+      <CardDescription>Live Generations</CardDescription>
       <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
         8
         <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
-          yrs
-        </span>
-        35
-        <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
-          d
+          per minute
         </span>
       </CardTitle>
     </CardHeader>

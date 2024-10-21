@@ -31,17 +31,17 @@ export default function Today() {
     <CardHeader className="space-y-0 pb-2">
       <CardDescription>Today</CardDescription>
       <CardTitle className="text-4xl tabular-nums">
-        14.9B{" "}
+        1,600{" "}
         <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
-          photons
+          generations
         </span>
       </CardTitle>
     </CardHeader>
     <CardContent>
       <ChartContainer
         config={{
-          photons: {
-            label: "Photons",
+          generations: {
+            label: "Generations",
             color: "hsl(var(--chart-1))",
           },
         }}
@@ -54,38 +54,38 @@ export default function Today() {
           }}
           data={[
             {
-              date: "2024-01-01",
-              photons: 2000,
+              date: "2024-10-19",
+              generations: 2000,
             },
             {
-              date: "2024-01-02",
-              photons: 2100,
+              date: "2024-10-20",
+              generations: 2100,
             },
             {
-              date: "2024-01-03",
-              photons: 2200,
+              date: "2024-10-21",
+              generations: 2200,
             },
             {
-              date: "2024-01-04",
-              photons: 1300,
+              date: "2024-10-22",
+              generations: 1300,
             },
             {
-              date: "2024-01-05",
-              photons: 1400,
+              date: "2024-10-23",
+              generations: 1400,
             },
             {
-              date: "2024-01-06",
-              photons: 2500,
+              date: "2024-10-24",
+              generations: 2500,
             },
             {
-              date: "2024-01-07",
-              photons: 1600,
+              date: "2024-10-25",
+              generations: 1600,
             },
           ]}
         >
           <Bar
-            dataKey="photons"
-            fill="var(--color-photons)"
+            dataKey="generations"
+            fill="var(--color-generations)"
             radius={5}
             fillOpacity={0.6}
             activeBar={<Rectangle fillOpacity={0.8} />}
@@ -125,13 +125,13 @@ export default function Today() {
           >
             <Label
               position="insideBottomLeft"
-              value="Average Photons"
+              value="Average Generations"
               offset={10}
               fill="hsl(var(--foreground))"
             />
             <Label
               position="insideTopLeft"
-              value="12.3B"
+              value="1,870"
               className="text-lg"
               fill="hsl(var(--foreground))"
               offset={10}
@@ -143,13 +143,13 @@ export default function Today() {
     </CardContent>
     <CardFooter className="flex-col items-start gap-1">
       <CardDescription>
-        Over the past 7 days, you have intercepted{" "}
-        <span className="font-medium text-foreground">53.89M</span> photons.
+        Over the past 7 days, you have made{" "}
+        <span className="font-medium text-foreground">13,100</span> generations.
       </CardDescription>
       <CardDescription>
         You need{" "}
-        <span className="font-medium text-foreground">8.1M</span> more
-        photons to reach your goal.
+        <span className="font-medium text-foreground">200</span> more
+        generations to reach your goal.
       </CardDescription>
     </CardFooter>
   </Card>

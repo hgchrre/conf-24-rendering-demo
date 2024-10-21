@@ -26,21 +26,21 @@ export default function Progress() {
     <CardHeader>
       <CardTitle>Progress</CardTitle>
       <CardDescription>
-        You're averaging more photons a day this year than last year.
+        You're averaging more generations a day this year than last year.
       </CardDescription>
     </CardHeader>
     <CardContent className="grid gap-4">
       <div className="grid auto-rows-min gap-2">
         <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
-          12.3B
+          1,800
           <span className="text-sm font-normal text-muted-foreground">
-            photons/day
+            generations/day
           </span>
         </div>
         <ChartContainer
           config={{
-            photons: {
-              label: "Photons",
+            generations: {
+              label: "Generations",
               color: "hsl(var(--chart-1))",
             },
           }}
@@ -58,13 +58,13 @@ export default function Progress() {
             data={[
               {
                 date: "2024",
-                photons: 12300,
+                generations: 12300,
               },
             ]}
           >
             <Bar
-              dataKey="photons"
-              fill="var(--color-photons)"
+              dataKey="generations"
+              fill="var(--color-generations)"
               radius={4}
               barSize={32}
             >
@@ -77,15 +77,15 @@ export default function Progress() {
               />
             </Bar>
             <YAxis dataKey="date" type="category" tickCount={1} hide />
-            <XAxis dataKey="photons" type="number" hide />
+            <XAxis dataKey="generations" type="number" hide />
           </BarChart>
         </ChartContainer>
       </div>
       <div className="grid auto-rows-min gap-2">
         <div className="flex items-baseline gap-1 text-2xl font-bold tabular-nums leading-none">
-          10.1B
+          1,200
           <span className="text-sm font-normal text-muted-foreground">
-            photons/day
+            generations/day
           </span>
         </div>
         <ChartContainer
