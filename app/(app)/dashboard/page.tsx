@@ -1,8 +1,7 @@
-"use client"
-
 import Live from "@/components/dashboard/live-csr"
 import Progress from "@/components/dashboard/progress-isr"
 import Today from "@/components/dashboard/today-ssr"
+import { Suspense } from "react"
 
 function getTimeOfDay() {
   const hour = new Date().getHours()
@@ -26,13 +25,19 @@ export default function Dashboard() {
       <WelcomeMessage />
       <div className="chart-wrapper flex flex-col flex-wrap items-start justify-center gap-6 sm:flex-row">
         <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
-          <Today />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Today />
+          </Suspense>
         </div>
         <div className="grid w-full flex-1 gap-6 lg:max-w-[20rem]">
-          <Progress />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Progress />
+          </Suspense>
         </div>
         <div className="grid w-full flex-1 gap-6">
-          <Live />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Live />
+          </Suspense>
         </div>
       </div>
     </div>
