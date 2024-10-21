@@ -1,4 +1,4 @@
-import { TodayChart } from '@/components/dashboard/today-chart'
+import { WeeklyChart } from '@/components/dashboard/weekly-chart'
 
 interface DailyData {
   date: string
@@ -11,8 +11,8 @@ async function getTodayData(): Promise<DailyData[]> {
   return res.json()
 }
 
-export default async function Today() {
+export default async function Weekly() {
   const data = await getTodayData()
 
-  return <TodayChart data={data} />
+  return <WeeklyChart data={data} />
 }

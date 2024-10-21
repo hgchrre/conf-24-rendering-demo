@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { TodayChart } from '@/components/dashboard/today-chart'
+import { WeeklyChart } from '@/components/dashboard/weekly-chart'
 
 interface DailyData {
   date: string
@@ -40,5 +40,5 @@ export default function Today() {
     return <div>Error: {error}</div>
   }
 
-  return <TodayChart data={data} />
+  return <WeeklyChart data={data} />
 }

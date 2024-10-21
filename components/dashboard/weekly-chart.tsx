@@ -28,11 +28,11 @@ interface DailyData {
   value: number
 }
 
-interface TodayChartProps {
+interface WeeklyChartProps {
   data: DailyData[]
 }
 
-export function TodayChart({ data }: TodayChartProps) {
+export function WeeklyChart({ data }: WeeklyChartProps) {
   const totalGenerations = data.reduce((sum, item) => sum + item.value, 0)
   const averageGenerations = Math.round(totalGenerations / data.length)
   const todayGenerations = data[data.length - 1]?.value || 0

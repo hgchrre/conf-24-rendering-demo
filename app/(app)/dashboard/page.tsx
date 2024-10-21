@@ -1,6 +1,6 @@
 import Live from "@/components/dashboard/live-csr"
 import Progress from "@/components/dashboard/progress-isr"
-import Today from "./today-ssr"
+import Weekly from "./weekly-ssr"
 import { Suspense } from "react"
 
 function getTimeOfDay() {
@@ -26,7 +26,7 @@ export default function Dashboard() {
       <div className="chart-wrapper flex flex-col flex-wrap items-start justify-center gap-6 sm:flex-row">
         <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
           <Suspense fallback={<div>Loading...</div>}>
-            <Today />
+            <Weekly />
           </Suspense>
         </div>
         <div className="grid w-full flex-1 gap-6 lg:max-w-[20rem]">
