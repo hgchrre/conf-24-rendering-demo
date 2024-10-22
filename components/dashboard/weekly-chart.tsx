@@ -52,6 +52,7 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
       </CardHeader>
       <CardContent>
         <ChartContainer
+        className="h-[200px]"
           config={{
             generations: {
               label: "Generations",

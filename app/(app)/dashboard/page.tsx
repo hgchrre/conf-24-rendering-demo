@@ -23,7 +23,7 @@ function WelcomeMessage() {
 
 export default function Dashboard() {
   return (
-    <div className="mx-auto max-w-full p-6 sm:p-8">
+    <div className="mx-auto max-w-7xl p-6 sm:p-8">
       <WelcomeMessage />
       <div className="flex flex-col gap-6">
         <div className="w-full">
@@ -32,16 +32,12 @@ export default function Dashboard() {
           </Suspense>
         </div>
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="w-full md:w-1/2">
             <Suspense fallback={<SkeletonCard />}>
               <Weekly />
             </Suspense>
-          </div>
-          <div className="w-full md:w-1/2">
             <Suspense fallback={<SkeletonCard />}>
               <Yearly />
             </Suspense>
-          </div>
         </div>
       </div>
     </div>

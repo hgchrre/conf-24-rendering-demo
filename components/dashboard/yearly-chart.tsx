@@ -69,7 +69,7 @@ export function YearlyChart({ data }: YearlyChartProps) {
         <CardDescription>{`${chartData[chartData.length - 1].year} - ${latestYear.year}`}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} className="min-h-[200px]">
           <BarChart
             accessibilityLayer
             data={chartData}
