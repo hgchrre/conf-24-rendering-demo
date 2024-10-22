@@ -8,8 +8,10 @@ interface LiveData {
   last_update: string;
 }
 
+const MAX_DATA_POINTS = 7; // Adjust this to change how many points are displayed
+
 export default function Live() {
-  const [data, setData] = useState<LiveData | null>(null)
+  const [data, setData] = useState<number[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -21,10 +23,14 @@ export default function Live() {
           throw new Error('Failed to fetch data')
         }
         const result = await response.json()
-        setData(result[0])
+        const newNumbers = result[0].numbers
+        setData(prevData => {
+          const updatedData = [...prevData, ...newNumbers].slice(-MAX_DATA_POINTS)
+          return updatedData
+        })
+        setIsLoading(false)
       } catch (err) {
         setError('An error occurred while fetching data')
-      } finally {
         setIsLoading(false)
       }
     }
@@ -42,16 +48,19 @@ export default function Live() {
     return <div>Error: {error}</div>
   }
 
-  if (!data) {
+  if (data.length === 0) {
     return <div>No data available</div>
   }
 
-  const chartData = data.numbers.map((value, index) => ({
-    date: new Date(Date.now() - (data.numbers.length - 1 - index) * 5000).toISOString(),
-    time: value
+  const chartData = data.map((value, index) => ({
+    index: index,
+    time: value,
+    label: index === data.length - 1 ? `${value} (live)` : `${value} (${(data.length - 1 - index) * 5}s ago)`,
+    isLive: index === data.length - 1
   }))
 
-  const latestValue = data.numbers[data.numbers.length - 1]
+  const latestValue = data[data.length - 1]
+  const maxValue = Math.max(...data) + 5 // Adding 5 for some headroom
 
-  return <LiveChart data={chartData} latestValue={latestValue} />
+  return <LiveChart data={chartData} latestValue={latestValue} maxValue={maxValue} maxDataPoints={MAX_DATA_POINTS} />
 }

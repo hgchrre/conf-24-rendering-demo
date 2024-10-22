@@ -1,7 +1,6 @@
 import Weekly from "./weekly-ssr"
 import Yearly from "./yearly-isr"
 import Live from "./live-csr"
-
 import { Suspense } from "react"
 
 function getTimeOfDay() {
@@ -24,21 +23,23 @@ export default function Dashboard() {
   return (
     <div className="mx-auto max-w-6xl p-6 sm:p-8">
       <WelcomeMessage />
-      <div className="chart-wrapper flex flex-col flex-wrap items-start justify-center gap-6 sm:flex-row">
-        <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Weekly />
-          </Suspense>
-        </div>
-        <div className="grid w-full flex-1 gap-6 lg:max-w-[20rem]">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Yearly />
-          </Suspense>
-        </div>
-        <div className="grid w-full flex-1 gap-6">
+      <div className="chart-wrapper flex flex-col gap-6">
+        <div className="w-full">
           <Suspense fallback={<div>Loading...</div>}>
             <Live />
           </Suspense>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-6">
+          <div className="w-full sm:w-1/2">
+            <Suspense fallback={<div>Loading...</div>}>
+              <Weekly />
+            </Suspense>
+          </div>
+          <div className="w-full sm:w-1/2">
+            <Suspense fallback={<div>Loading...</div>}>
+              <Yearly />
+            </Suspense>
+          </div>
         </div>
       </div>
     </div>

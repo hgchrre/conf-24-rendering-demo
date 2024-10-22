@@ -5,6 +5,9 @@ import {
   AreaChart,
   XAxis,
   YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  ReferenceDot
 } from "recharts"
 
 import {
@@ -16,28 +19,27 @@ import {
 } from "@/components/ui/card"
 import {
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart"
 
 interface LiveChartProps {
   data: {
-    date: string;
+    index: number;
     time: number;
+    label: string;
+    isLive: boolean;
   }[];
   latestValue: number;
+  maxValue: number;
+  maxDataPoints: number;
 }
 
-export function LiveChart({ data, latestValue }: LiveChartProps) {
+export function LiveChart({ data, latestValue, maxValue, maxDataPoints }: LiveChartProps) {
   return (
     <Card className="max-w-xs">
       <CardHeader className="space-y-0 pb-0">
-        <CardDescription>Live Generations</CardDescription>
+        <CardDescription>Live Generation Speed</CardDescription>
         <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
-        <span className="font-sans text-md font-normal tracking-normal text-muted-foreground">
-            &#126;
-          </span>
-            {latestValue}
+          {latestValue}
           <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
             per minute
           </span>
@@ -52,55 +54,81 @@ export function LiveChart({ data, latestValue }: LiveChartProps) {
             },
           }}
         >
-          <AreaChart
-            accessibilityLayer
-            data={data}
-            margin={{
-              left: 0,
-              right: 0,
-              top: 0,
-              bottom: 0,
-            }}
-          >
-            <XAxis dataKey="date" hide />
-            <YAxis domain={["dataMin - 5", "dataMax + 2"]} hide />
-            <defs>
-              <linearGradient id="fillTime" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-time)"
-                  stopOpacity={0.8}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-time)"
-                  stopOpacity={0.1}
-                />
-              </linearGradient>
-            </defs>
-            <Area
-              dataKey="time"
-              type="natural"
-              fill="url(#fillTime)"
-              fillOpacity={0.4}
-              stroke="var(--color-time)"
-            />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-              formatter={(value) => (
-                <div className="flex min-w-[120px] items-center text-xs text-muted-foreground">
-                  Generations
-                  <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
-                    {value}
-                    <span className="font-normal text-muted-foreground">
-                      /min
-                    </span>
-                  </div>
-                </div>
-              )}
-            />
-          </AreaChart>
+          <ResponsiveContainer width="100%" height={200}>
+            <AreaChart
+              data={data}
+              margin={{
+                top: 10,
+                right: 30,
+                left: 0,
+                bottom: 0,
+              }}
+            >
+              <XAxis
+                dataKey="index"
+                type="number"
+                domain={[0, maxDataPoints - 1]}
+                hide
+              />
+              <YAxis hide domain={[0, maxValue]} />
+              <Tooltip
+                content={({ active, payload }) => {
+                  if (active && payload && payload.length) {
+                    return (
+                      <div className="rounded-lg border bg-background p-2 shadow-sm">
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="flex flex-col">
+                            <span className="text-[0.70rem] uppercase text-muted-foreground">
+                              Generations
+                            </span>
+                            <span className="font-bold text-white">
+                              {payload[0].payload.label}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  }
+                  return null
+                }}
+              />
+              <defs>
+                <linearGradient id="fillTime" x1="0" y1="0" x2="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor="var(--color-time)"
+                    stopOpacity={0.8}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor="var(--color-time)"
+                    stopOpacity={0.1}
+                  />
+                </linearGradient>
+              </defs>
+              <Area
+                type="monotone"
+                dataKey="time"
+                stroke="var(--color-time)"
+                fillOpacity={1}
+                fill="url(#fillTime)"
+              />
+              {data.map((entry, index) => (
+                entry.isLive && (
+                  <ReferenceDot
+                    key={index}
+                    x={entry.index}
+                    y={entry.time}
+                    r={4}
+                    fill="red"
+                    stroke="none"
+                  >
+                    <animate attributeName="r" from="4" to="6" dur="1s" repeatCount="indefinite" />
+                  </ReferenceDot>
+                )
+              ))}
+            </AreaChart>
+          </ResponsiveContainer>
         </ChartContainer>
       </CardContent>
     </Card>
