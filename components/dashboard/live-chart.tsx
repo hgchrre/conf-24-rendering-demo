@@ -35,9 +35,15 @@ interface LiveChartProps {
 
 export function LiveChart({ data, latestValue, maxValue, maxDataPoints }: LiveChartProps) {
   return (
-    <Card className="max-w-xs">
-      <CardHeader className="space-y-0 pb-0">
-        <CardDescription>Live Generation Speed</CardDescription>
+    <Card className="w-full">
+      <CardHeader className="space-y-0 pb-2">
+        <CardDescription className="flex items-baseline gap-1">
+            <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+            </span>
+            Live Generation Speed
+        </CardDescription>
         <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
           {latestValue}
           <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
@@ -45,8 +51,9 @@ export function LiveChart({ data, latestValue, maxValue, maxDataPoints }: LiveCh
           </span>
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-0">
+      <CardContent>
         <ChartContainer
+        className="max-h-[100px] w-full"
           config={{
             time: {
               label: "Time",
@@ -54,7 +61,6 @@ export function LiveChart({ data, latestValue, maxValue, maxDataPoints }: LiveCh
             },
           }}
         >
-          <ResponsiveContainer width="100%" height={200}>
             <AreaChart
               data={data}
               margin={{
@@ -81,7 +87,7 @@ export function LiveChart({ data, latestValue, maxValue, maxDataPoints }: LiveCh
                             <span className="text-[0.70rem] uppercase text-muted-foreground">
                               Generations
                             </span>
-                            <span className="font-bold text-white">
+                            <span className="font-bold text-muted-foreground">
                               {payload[0].payload.label}
                             </span>
                           </div>
@@ -120,7 +126,7 @@ export function LiveChart({ data, latestValue, maxValue, maxDataPoints }: LiveCh
                     x={entry.index}
                     y={entry.time}
                     r={4}
-                    fill="red"
+                    fill="green"
                     stroke="none"
                   >
                     <animate attributeName="r" from="4" to="6" dur="1s" repeatCount="indefinite" />
@@ -128,7 +134,6 @@ export function LiveChart({ data, latestValue, maxValue, maxDataPoints }: LiveCh
                 )
               ))}
             </AreaChart>
-          </ResponsiveContainer>
         </ChartContainer>
       </CardContent>
     </Card>

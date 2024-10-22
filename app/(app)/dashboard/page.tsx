@@ -25,18 +25,18 @@ export default function Dashboard() {
       <WelcomeMessage />
       <div className="chart-wrapper flex flex-col gap-6">
         <div className="w-full">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className="h-[200px] w-full bg-gray-100 animate-pulse rounded-lg"></div>}>
             <Live />
           </Suspense>
         </div>
-        <div className="flex flex-col sm:flex-row gap-6">
-          <div className="w-full sm:w-1/2">
-            <Suspense fallback={<div>Loading...</div>}>
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="w-full md:w-1/2">
+            <Suspense fallback={<div className="h-[300px] w-full bg-gray-100 animate-pulse rounded-lg"></div>}>
               <Weekly />
             </Suspense>
           </div>
-          <div className="w-full sm:w-1/2">
-            <Suspense fallback={<div>Loading...</div>}>
+          <div className="w-full md:w-1/2">
+            <Suspense fallback={<div className="h-[300px] w-full bg-gray-100 animate-pulse rounded-lg"></div>}>
               <Yearly />
             </Suspense>
           </div>
