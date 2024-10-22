@@ -1,5 +1,5 @@
 import Live from "@/components/dashboard/live-csr"
-import Progress from "@/components/dashboard/progress-isr"
+import Yearly from "@/components/dashboard/yearly-isr"
 import Weekly from "./weekly-ssr"
 import { Suspense } from "react"
 
@@ -31,7 +31,7 @@ export default function Dashboard() {
         </div>
         <div className="grid w-full flex-1 gap-6 lg:max-w-[20rem]">
           <Suspense fallback={<div>Loading...</div>}>
-            <Progress />
+            <Yearly />
           </Suspense>
         </div>
         <div className="grid w-full flex-1 gap-6">

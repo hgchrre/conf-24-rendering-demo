@@ -18,7 +18,7 @@ import {
 import {
   ChartContainer,
 } from "@/components/ui/chart"
-export default function Progress() {
+export default function Yearly() {
   return (
     <Card
     className="max-w-xs"
