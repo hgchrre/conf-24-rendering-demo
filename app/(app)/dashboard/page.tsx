@@ -2,6 +2,8 @@ import Weekly from "./weekly-ssr"
 import Yearly from "./yearly-isr"
 import Live from "./live-csr"
 import { Suspense } from "react"
+import { Card } from "@/components/ui/card"
+import { SkeletonCard } from "@/components/skeletons/skeleton"
 
 function getTimeOfDay() {
   const hour = new Date().getHours()
@@ -25,18 +27,18 @@ export default function Dashboard() {
       <WelcomeMessage />
       <div className="flex flex-col gap-6">
         <div className="w-full">
-          <Suspense fallback={<div className="h-[200px] w-full bg-black animate-pulse rounded-lg"></div>}>
+          <Suspense fallback={<SkeletonCard />}>
             <Live />
           </Suspense>
         </div>
         <div className="flex flex-col md:flex-row gap-6">
           <div className="w-full md:w-1/2">
-            <Suspense fallback={<div className="h-[300px] w-full bg-black animate-pulse rounded-lg"></div>}>
+            <Suspense fallback={<SkeletonCard />}>
               <Weekly />
             </Suspense>
           </div>
           <div className="w-full md:w-1/2">
-            <Suspense fallback={<div className="h-[300px] w-full bg-black animate-pulse rounded-lg"></div>}>
+            <Suspense fallback={<SkeletonCard />}>
               <Yearly />
             </Suspense>
           </div>
