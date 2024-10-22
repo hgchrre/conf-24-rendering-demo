@@ -1,6 +1,7 @@
-import Live from "@/components/dashboard/live-csr"
-import Yearly from "./yearly-isr"
 import Weekly from "./weekly-ssr"
+import Yearly from "./yearly-isr"
+import Live from "./live-csr"
+
 import { Suspense } from "react"
 
 function getTimeOfDay() {
