@@ -3,21 +3,14 @@
 import { useEffect, useState } from "react"
 import { YearlyChart } from '@/components/dashboard/yearly-chart'
 
-interface YearlyData {
-  currentYear: {
-    year: number;
-    generationsPerDay: number;
-    totalGenerations: number;
-  };
-  previousYear: {
-    year: number;
-    generationsPerDay: number;
-    totalGenerations: number;
-  };
+interface YearlyDataItem {
+  id: number;
+  created_at: string;
+  value: number;
 }
 
-export default function YearlyCSR() {
-  const [data, setData] = useState<YearlyData | null>(null)
+export default function Yearly() {
+  const [data, setData] = useState<YearlyDataItem[] | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -48,7 +41,7 @@ export default function YearlyCSR() {
     return <div>Error: {error}</div>
   }
 
-  if (!data) {
+  if (!data || data.length === 0) {
     return <div>No data available</div>
   }
 

@@ -90,8 +90,8 @@ export default function Yearly() {
         </div>
         <ChartContainer
           config={{
-            steps: {
-              label: "Steps",
+            generations: {
+              label: "Generations",
               color: "hsl(var(--muted))",
             },
           }}
@@ -109,13 +109,13 @@ export default function Yearly() {
             data={[
               {
                 date: "2023",
-                steps: 10100,
+                generations: 10100,
               },
             ]}
           >
             <Bar
-              dataKey="steps"
-              fill="var(--color-steps)"
+              dataKey="generations"
+              fill="var(--color-generations)"
               radius={4}
               barSize={32}
             >
@@ -128,7 +128,7 @@ export default function Yearly() {
               />
             </Bar>
             <YAxis dataKey="date" type="category" tickCount={1} hide />
-            <XAxis dataKey="steps" type="number" hide />
+            <XAxis dataKey="generations" type="number" hide />
           </BarChart>
         </ChartContainer>
       </div>

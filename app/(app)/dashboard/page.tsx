@@ -1,5 +1,5 @@
 import Live from "@/components/dashboard/live-csr"
-import Yearly from "@/components/dashboard/yearly-isr"
+import Yearly from "./yearly-isr"
 import Weekly from "./weekly-ssr"
 import { Suspense } from "react"
 
