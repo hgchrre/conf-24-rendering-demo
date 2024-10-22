@@ -31,13 +31,13 @@ export default function Dashboard() {
             <Live />
           </Suspense>
         </div>
-        <div className="flex flex-col md:flex-row gap-6">
-            <Suspense fallback={<SkeletonCard />}>
-              <Weekly />
-            </Suspense>
-            <Suspense fallback={<SkeletonCard />}>
-              <Yearly />
-            </Suspense>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Suspense fallback={<SkeletonCard />}>
+            <Weekly />
+          </Suspense>
+          <Suspense fallback={<SkeletonCard />}>
+            <Yearly />
+          </Suspense>
         </div>
       </div>
     </div>
