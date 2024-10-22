@@ -21,9 +21,9 @@ function WelcomeMessage() {
 
 export default function Dashboard() {
   return (
-    <div className="mx-auto max-w-6xl p-6 sm:p-8">
+    <div className="mx-auto max-w-full p-6 sm:p-8">
       <WelcomeMessage />
-      <div className="chart-wrapper flex flex-col gap-6">
+      <div className="flex flex-col gap-6">
         <div className="w-full">
           <Suspense fallback={<div className="h-[200px] w-full bg-gray-100 animate-pulse rounded-lg"></div>}>
             <Live />
