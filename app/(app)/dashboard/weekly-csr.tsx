@@ -8,7 +8,7 @@ interface DailyData {
   value: number
 }
 
-export default function Today() {
+export default function Weekly() {
   const [data, setData] = useState<DailyData[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -16,7 +16,7 @@ export default function Today() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('https://conf-24-rendering-api.vercel.app/api/dashboard/today')
+        const response = await fetch('https://conf-24-rendering-api.vercel.app/api/dashboard/weekly')
         if (!response.ok) {
           throw new Error('Failed to fetch data')
         }
