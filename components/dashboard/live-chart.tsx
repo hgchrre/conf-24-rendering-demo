@@ -34,7 +34,10 @@ export function LiveChart({ data, latestValue }: LiveChartProps) {
       <CardHeader className="space-y-0 pb-0">
         <CardDescription>Live Generations</CardDescription>
         <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
-          {latestValue}
+        <span className="font-sans text-md font-normal tracking-normal text-muted-foreground">
+            &#126;
+          </span>
+            {latestValue}
           <span className="font-sans text-sm font-normal tracking-normal text-muted-foreground">
             per minute
           </span>

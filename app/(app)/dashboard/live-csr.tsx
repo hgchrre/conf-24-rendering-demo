@@ -8,7 +8,7 @@ interface LiveData {
   last_update: string;
 }
 
-export default function LiveCSR() {
+export default function Live() {
   const [data, setData] = useState<LiveData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
