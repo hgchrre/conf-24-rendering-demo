@@ -2,7 +2,7 @@ import { CarouselContent, AIGeneration } from './carousel-content'
 
 async function getGenerations(): Promise<AIGeneration[]> {
   const res = await fetch('https://conf-24-rendering-api.vercel.app/api/gallery', {
-    next: { revalidate: 60 } // Revalidate every 60 seconds
+    next: { revalidate: 10 } // Revalidate every 10 seconds
   })
 
   if (!res.ok) {

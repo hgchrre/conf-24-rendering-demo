@@ -1,4 +1,4 @@
-import Carousel from "@/components/gallery/carousel-csr"
+import Carousel from "@/components/gallery/carousel-isr"
 
 export default function Gallery() {
   return (
