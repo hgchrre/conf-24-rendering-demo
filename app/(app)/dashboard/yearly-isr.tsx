@@ -7,7 +7,7 @@ interface YearlyDataItem {
 }
 
 async function getYearlyData(): Promise<YearlyDataItem[]> {
-  const res = await fetch('https://conf-24-rendering-api.vercel.app/api/dashboard/yearly', { next: { revalidate: 3600 } })
+  const res = await fetch('https://conf-24-rendering-api.vercel.app/api/dashboard/yearly', { next: { revalidate: 10 } })
   if (!res.ok) throw new Error('Failed to fetch data')
   return res.json()
 }
