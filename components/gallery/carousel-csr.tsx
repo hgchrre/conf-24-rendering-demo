@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { CarouselContent, AIGeneration } from './carousel-content'
 
-export default function ClientCarousel() {
+export default function Carousel() {
   const [generations, setGenerations] = useState<AIGeneration[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)

@@ -12,7 +12,7 @@ async function getGenerations(): Promise<AIGeneration[]> {
   return res.json()
 }
 
-export default async function ServerCarousel() {
+export default async function Carousel() {
   const generations = await getGenerations()
 
   return <CarouselContent generations={generations} />
