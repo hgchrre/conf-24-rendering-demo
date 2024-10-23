@@ -2,7 +2,6 @@ import Weekly from "./weekly-ssr"
 import Yearly from "./yearly-isr"
 import Live from "./live-csr"
 import { Suspense } from "react"
-import { Card } from "@/components/ui/card"
 import { SkeletonCard } from "@/components/skeletons/skeleton"
 
 function getTimeOfDay() {
