@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import Image from "next/image"
+import HeroImage from "@/components/homepage/hero-image";
+import CTA from "@/components/homepage/cta";
 
 async function getHomepageData() {
   const res = await fetch('https://conf-24-rendering-api.vercel.app/api/homepage');
@@ -22,26 +21,9 @@ export default async function Landing() {
         <p className="text-xl mb-10 text-gray-300">
           {subheader}
         </p>
-        <Link href="/dashboard" prefetch>
-          <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-3 text-lg font-semibold">
-            Start Free Trial
-          </Button>
-        </Link>
+        <CTA />
       </div>
-      <div className="md:w-1/2 flex justify-center">
-        <div className="relative w-full aspect-[5/4] max-w-[500px] bounce-animation">
-          <Image
-            src="/glass.png"
-            alt="Cube SaaS Platform"
-            fill
-            sizes="(max-width: 768px) 100vw, 500px"
-            priority
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
-            className="rounded-lg shadow-2xl object-cover"
-          />
-        </div>
-      </div>
+      <HeroImage />
     </div>
   )
 }
