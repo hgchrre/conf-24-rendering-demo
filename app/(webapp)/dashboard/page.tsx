@@ -1,6 +1,6 @@
-import Weekly from "./weekly-ssr"
-import Yearly from "./yearly-isr"
-import Live from "./live-csr"
+import Weekly from "./weekly"
+import Yearly from "./yearly"
+import Live from "./live"
 import { Suspense } from "react"
 import { SkeletonCard } from "@/components/skeletons/skeleton"
 
