@@ -2,7 +2,7 @@ import Weekly from "./weekly"
 import Yearly from "./yearly"
 import Live from "./live"
 import { Suspense } from "react"
-import { SkeletonCard } from "@/components/skeletons/skeleton"
+import { SkeletonCard } from "@/components/skeletons/skeleton-cheat"
 
 function getTimeOfDay() {
   const hour = new Date().getHours()
