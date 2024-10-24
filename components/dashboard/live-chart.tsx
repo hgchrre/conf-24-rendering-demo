@@ -35,7 +35,7 @@ interface LiveChartProps {
 
 export function LiveChart({ data, latestValue, maxValue, maxDataPoints }: LiveChartProps) {
   return (
-    <Card className="w-full">
+    <Card className="w-full h-[200px]">
       <CardHeader className="space-y-0 pb-2">
         <CardDescription className="flex items-baseline gap-1">
             <span className="relative flex h-2 w-2">
