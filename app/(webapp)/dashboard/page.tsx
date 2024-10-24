@@ -4,6 +4,8 @@ import Live from "./live-csr"
 import { Suspense } from "react"
 import { SkeletonCard } from "@/components/skeletons/skeleton"
 
+export const experimental_ppr = true
+
 function getTimeOfDay() {
   const hour = new Date().getHours()
   if (hour < 12) return "morning"
