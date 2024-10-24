@@ -40,18 +40,6 @@ export default function Live() {
     return () => clearInterval(interval)
   }, [])
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>
-  }
-
-  if (data.length === 0) {
-    return <div>No data available</div>
-  }
-
   const chartData = data.map((value, index) => ({
     index: index,
     time: value,
